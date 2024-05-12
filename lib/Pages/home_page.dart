@@ -21,7 +21,13 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    notificationServices.isTokenRefresh();
     notificationServices.requestNotificationPermission();
+
+    notificationServices.getDeviceToken().then((value){
+      print('device token:');
+      print(value);
+    });
   }
 
   // instance of auth

@@ -24,4 +24,16 @@ class NotificationServices{
 
     }
   }
+
+  Future<String> getDeviceToken()async{
+    String? token = await firebaseMessaging.getToken();
+    return token!;
+  }
+
+  void isTokenRefresh()async{
+    firebaseMessaging.onTokenRefresh.listen((event) {
+      event.toString();
+      print('refresh');
+    });
+  }
 }
