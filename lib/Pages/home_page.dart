@@ -1,5 +1,6 @@
 import 'package:chatapp/Pages/chat_page.dart';
 import 'package:chatapp/services/auth/auth_service.dart';
+import 'package:chatapp/services/notification/notification_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  NotificationServices notificationServices = NotificationServices();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    notificationServices.requestNotificationPermission();
   }
 
   // instance of auth
