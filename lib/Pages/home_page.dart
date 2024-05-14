@@ -21,9 +21,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    notificationServices.isTokenRefresh();
     notificationServices.requestNotificationPermission();
-
+    notificationServices.firebaseInit(context);
+    // notificationServices.isTokenRefresh();
     notificationServices.getDeviceToken().then((value){
       print('device token:');
       print(value);
